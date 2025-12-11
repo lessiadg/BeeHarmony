@@ -14,24 +14,18 @@ get_header();
         </p>
 
         <nav class="bh-nav">
-            <button class="nav-btn active">Accueil</button>
+            <a href="<?php echo esc_url( home_url('/') ); ?>" class="nav-btn active">Accueil</a>
 
-            <div class="bh-search">
+            <form method="get" action="<?php echo esc_url( home_url('/recherche') ); ?>" class="bh-search">
                 <span class="search-icon">🔍</span>
-                <input type="text" placeholder="Rechercher, musiques, artistes, ..." />
-            </div>
+                <input type="text" name="s" placeholder="Rechercher, musiques, artistes, ..." />
+            </form>
 
             <!-- Zone connexion / profil -->
             <div class="bh-auth">
                 <?php if ( is_user_logged_in() ) : ?>
-                    <span class="bh-hello">
-                        Bonjour, <strong><?php echo esc_html( wp_get_current_user()->display_name ); ?></strong>
-                    </span>
                     <a class="profile-btn" href="<?php echo esc_url( home_url('/profil') ); ?>">
                         Profil
-                    </a>
-                    <a class="logout-link" href="<?php echo esc_url( wp_logout_url( home_url() ) ); ?>">
-                        Déconnexion
                     </a>
                 <?php else : ?>
                     <a class="profile-btn" href="<?php echo esc_url( home_url('/login') ); ?>">
@@ -53,11 +47,10 @@ get_header();
                 <h2>Recommandation Playlist</h2>
             </div>
             <div class="playlist-grid">
-                <div class="playlist-card"><span>Rock</span></div>
                 <div class="playlist-card"><span>Pop</span></div>
+                <div class="playlist-card"><span>Rock</span></div>
                 <div class="playlist-card"><span>Rap</span></div>
                 <div class="playlist-card"><span>Latino</span></div>
-                <button class="arrow-btn">➜</button>
             </div>
         </section>
 
@@ -119,8 +112,6 @@ get_header();
                         </div>
                     </div>
                 </article>
-
-                <button class="arrow-btn">➜</button>
             </div>
         </section>
 
@@ -146,7 +137,6 @@ get_header();
                     <img src="<?php echo get_template_directory_uri(); ?>/images/weeknd.jpg" alt="The Weeknd">
                     <p>The Weeknd</p>
                 </div>
-                <button class="arrow-btn">➜</button>
             </div>
         </section>
 
@@ -184,7 +174,6 @@ get_header();
                         <span class="member-action">+Suivre</span>
                     </div>
                 </div>
-                <button class="arrow-btn">➜</button>
             </div>
         </section>
 
@@ -230,3 +219,5 @@ get_header();
 <?php
 get_footer();
 ?>
+
+
