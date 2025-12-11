@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 /* RESET SIMPLE */
 *,
 *::before,
@@ -8,7 +11,7 @@
 }
 
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: "Inter", sans-serif;
     background: #ffffff;
     color: #111;
 }
@@ -18,6 +21,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    padding-bottom: 120px;
 }
 
 /* On centre le contenu au milieu de l'écran, pas en A4 */
@@ -37,9 +41,10 @@ body {
 }
 
 .bh-logo {
-    font-family: "Times New Roman", serif;
-    font-size: 2.6rem;
+    font-family: "Imperial Script", cursive;
+    font-size: 3rem;
     margin-bottom: 4px;
+    font-weight: 400;
 }
 
 .bh-subtitle {
@@ -54,29 +59,59 @@ body {
 .bh-nav {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 16px;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .nav-btn,
 .profile-btn {
     border-radius: 999px;
     border: 1px solid #d0d0d0;
-    padding: 5px 18px;
+    padding: 7px 20px;
     font-size: 0.85rem;
     background: #fff;
     cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+    color: inherit;
 }
 
 .nav-btn.active {
-    background: #f3f6ff;
-    border-color: #9aa7ff;
+    background: #C5E0FB;
+    border-color: #C5E0FB;
+    color: #333;
+}
+
+.bh-auth {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.logout-link,
+.register-link {
+    border-radius: 999px;
+    border: 1px solid #d0d0d0;
+    padding: 7px 20px;
+    font-size: 0.85rem;
+    background: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    transition: all 0.2s ease;
 }
 
 .bh-search {
     position: relative;
     flex: 1;
     max-width: 380px;
+    display: flex;
+    align-items: center;
 }
 
 .bh-search input {
@@ -120,25 +155,29 @@ body {
 /* RECOMMANDATION PLAYLIST */
 .playlist-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr)) auto;
-    gap: 14px;
+    grid-template-columns: repeat(4, 180px) auto;
+    gap: 60px;
     align-items: center;
+    justify-items: center;
+    justify-content: start;
+    margin-top: 20px;
 }
 
 .playlist-card {
     border-radius: 12px;
-    height: 110px;
+    height: 180px;
+    width: 180px;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
     font-size: 0.95rem;
     color: #fff;
-    padding-bottom: 10px;
-    background: linear-gradient(135deg, #ff3a3a, #000000); /* à adapter pour chaque genre si tu veux */
+    padding-bottom: 0;
+    background: linear-gradient(135deg, #5b8dff, #f7fbff);
 }
 
 .playlist-card:nth-child(2) {
-    background: linear-gradient(135deg, #5b8dff, #f7fbff);
+    background: linear-gradient(135deg, #ff3a3a, #000000);
 }
 
 .playlist-card:nth-child(3) {
@@ -201,7 +240,7 @@ body {
 .titre-actions {
     display: flex;
     gap: 8px;
-    font-size: 0.75rem;
+    font-size: 1.4rem;
 }
 
 /* ARTISTES */
@@ -263,15 +302,20 @@ body {
 
 /* PLAYER */
 .player-wrapper {
-    padding: 10px 16px 0;
+    padding: 10px 16px 16px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    z-index: 100;
 }
 
 .player {
     max-width: 1000px;
     margin: 0 auto;
-    border-radius: 18px 18px 0 0;
+    border-radius: 12px;
     border: 1px solid #e2e2e2;
-    border-bottom: none;
     padding: 10px 18px;
     display: flex;
     align-items: center;
