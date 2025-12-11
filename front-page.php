@@ -2,7 +2,16 @@
 get_header();
 ?>
 
-<?php echo '<!-- BeeHarmony front-page loaded -->'; ?>
+<?php
+// Debug banner only when ?beeharmony_debug=1 is present in URL
+if ( isset($_GET['beeharmony_debug']) && $_GET['beeharmony_debug'] == '1' ) :
+    $published_count = wp_count_posts('post')->publish;
+    ?>
+    <div style="position:fixed;left:0;right:0;top:0;background:#ffea00;color:#000;padding:8px 12px;z-index:99999;font-family:sans-serif;border-bottom:2px solid #000;text-align:center;">
+        BeeHarmony front-page template loaded — posts publiés: <?php echo intval($published_count); ?> — <a href="<?php echo esc_url( home_url('/wp-admin/')); ?>">Admin</a>
+    </div>
+    <div style="height:46px;"></div>
+<?php endif; ?>
 
 <div class="page bh-page">
 
