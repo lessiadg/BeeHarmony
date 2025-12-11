@@ -1,0 +1,141 @@
+/* --------- Reset simple --------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    background: #ffffff;
+    font-family: 'Inter', sans-serif;
+    color: #111111;
+}
+
+/* --------- Header --------- */
+header {
+    display: flex;
+    align-items: center;
+    padding: 15px 15px 10px;
+}
+
+.back-btn {
+    border: none;
+    background: none;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.logo {
+    flex-grow: 1;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+}
+
+/* --------- Barre de recherche --------- */
+.search-box {
+    padding: 0 20px;
+    margin-top: 5px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 25px;
+    border: 1px solid #dcdcdc;
+    font-size: 15px;
+    outline: none;
+}
+
+/* --------- Titre "Résultats" --------- */
+.result-title {
+    margin: 18px 20px 8px;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+/* --------- Liste des résultats --------- */
+.result-list {
+    padding: 0 10px 70px; /* 70px pour laisser de la place au menu du bas */
+}
+
+.result-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 8px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.result-item img {
+    width: 55px;
+    height: 55px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-right: 12px;
+}
+
+.result-item .info {
+    flex-grow: 1;
+}
+
+.result-item .title {
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 3px;
+}
+
+.result-item .artist {
+    font-size: 13px;
+    color: #6b6b6b;
+}
+
+.play-btn {
+    border: none;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* --------- Menu du bas --------- */
+.bottom-menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #f8f8f8;
+    border-top: 1px solid #e3e3e3;
+    display: flex;
+    justify-content: space-around;
+    padding: 6px 0 4px;
+}
+
+.bottom-menu .menu-item {
+    text-align: center;
+    font-size: 13px;
+    text-decoration: none;
+    color: #444444;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bottom-menu .menu-item .icon {
+    font-size: 18px;
+    line-height: 1;
+    margin-bottom: 2px;
+}
+
+.bottom-menu .menu-item.active {
+    font-weight: 600;
+}
+
+/* --------- Mobile friendly --------- */
+@media (min-width: 768px) {
+    body {
+        max-width: 430px;
+        margin: 0 auto;
+        border-left: 1px solid #f0f0f0;
+        border-right: 1px solid #f0f0f0;
+    }
+}
