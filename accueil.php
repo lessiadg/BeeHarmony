@@ -63,7 +63,7 @@ get_header();
             <div class="titre-grid">
                 <article class="titre-card">
                     <div class="titre-cover">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/titre1.jpg" alt="Dangerous Woman">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/titre1.jpg" alt="Dangerous Woman">
                     </div>
                     <div class="titre-info">
                         <p class="titre-name">Dangerous Woman</p>
@@ -76,7 +76,7 @@ get_header();
 
                 <article class="titre-card">
                     <div class="titre-cover">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/titre2.jpg" alt="Espresso">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/titre2.jpg" alt="Espresso">
                     </div>
                     <div class="titre-info">
                         <p class="titre-name">Espresso</p>
@@ -89,7 +89,7 @@ get_header();
 
                 <article class="titre-card">
                     <div class="titre-cover">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/titre3.jpg" alt="24K Magic">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/titre3.jpg" alt="24K Magic">
                     </div>
                     <div class="titre-info">
                         <p class="titre-name">24K Magic</p>
@@ -102,7 +102,7 @@ get_header();
 
                 <article class="titre-card">
                     <div class="titre-cover">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/titre4.jpg" alt="I Wanna Be Yours">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/titre4.jpg" alt="I Wanna Be Yours">
                     </div>
                     <div class="titre-info">
                         <p class="titre-name">I Wanna Be Yours</p>
@@ -122,19 +122,19 @@ get_header();
             </div>
             <div class="avatar-row">
                 <div class="avatar-card">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/ariana.jpg" alt="Ariana Grande">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ariana.jpg" alt="Ariana Grande">
                     <p>Ariana Grande</p>
                 </div>
                 <div class="avatar-card">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/tame_impala.jpg" alt="Tame Impala">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tame_impala.jpg" alt="Tame Impala">
                     <p>Tame Impala</p>
                 </div>
                 <div class="avatar-card">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/mac_miller.jpg" alt="Mac Miller">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mac_miller.jpg" alt="Mac Miller">
                     <p>Mac Miller</p>
                 </div>
                 <div class="avatar-card">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/weeknd.jpg" alt="The Weeknd">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/weeknd.jpg" alt="The Weeknd">
                     <p>The Weeknd</p>
                 </div>
             </div>
@@ -147,28 +147,28 @@ get_header();
             </div>
             <div class="member-row">
                 <div class="member-card">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/louis.jpg" alt="Louis">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/louis.jpg" alt="Louis">
                     <div class="member-text">
                         <span class="member-name">@louis</span>
                         <span class="member-action">+Suivre</span>
                     </div>
                 </div>
                 <div class="member-card">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/sara.jpg" alt="Sara">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/sara.jpg" alt="Sara">
                     <div class="member-text">
                         <span class="member-name">@sara</span>
                         <span class="member-action">+Suivre</span>
                     </div>
                 </div>
                 <div class="member-card">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/camille.jpg" alt="Camille">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/camille.jpg" alt="Camille">
                     <div class="member-text">
                         <span class="member-name">@camille</span>
                         <span class="member-action">+Suivre</span>
                     </div>
                 </div>
                 <div class="member-card">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/emma.jpg" alt="Emma">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/emma.jpg" alt="Emma">
                     <div class="member-text">
                         <span class="member-name">@emma</span>
                         <span class="member-action">+Suivre</span>
