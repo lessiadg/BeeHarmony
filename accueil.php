@@ -63,7 +63,7 @@ get_header();
             <div class="titre-grid">
                 <article class="titre-card">
                     <div class="titre-cover">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/titre1.jpg" alt="Dangerous Woman">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Dangerous Woman.jpg" alt="Dangerous Woman">
                     </div>
                     <div class="titre-info">
                         <p class="titre-name">Dangerous Woman</p>
@@ -76,7 +76,7 @@ get_header();
 
                 <article class="titre-card">
                     <div class="titre-cover">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/titre2.jpg" alt="Espresso">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Espresso.jpg" alt="Espresso">
                     </div>
                     <div class="titre-info">
                         <p class="titre-name">Espresso</p>
@@ -89,7 +89,7 @@ get_header();
 
                 <article class="titre-card">
                     <div class="titre-cover">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/titre3.jpg" alt="24K Magic">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/24K Magic.jpg" alt="24K Magic">
                     </div>
                     <div class="titre-info">
                         <p class="titre-name">24K Magic</p>
@@ -102,7 +102,7 @@ get_header();
 
                 <article class="titre-card">
                     <div class="titre-cover">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/titre4.jpg" alt="I Wanna Be Yours">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/I Wanna Be Yours.jpg" alt="I Wanna Be Yours">
                     </div>
                     <div class="titre-info">
                         <p class="titre-name">I Wanna Be Yours</p>
