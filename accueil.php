@@ -7,6 +7,7 @@ get_header();
     <!-- HEADER / TOP BAR -->
     <header class="bh-header">
         <h1 class="bh-logo">BeeHarmony</h1>
+        <br>
 
         <p class="bh-subtitle">
             Recherchez vos titres et artistes favoris. Créez vos playlist, partagez, faites de nouvelles rencontres
