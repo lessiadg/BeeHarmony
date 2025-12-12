@@ -49,7 +49,7 @@ get_header();
                 <h2>Recommandation Playlist</h2>
             </div>
             <div class="playlist-grid">
-                <div class="playlist-card"><span>Pop</span></div>
+                <a href="<?php echo home_url('/playlist'); ?>" class="playlist-card"><span>Pop</span></a>
                 <div class="playlist-card"><span>Rock</span></div>
                 <div class="playlist-card"><span>Rap</span></div>
                 <div class="playlist-card"><span>Latino</span></div>
@@ -65,11 +65,11 @@ get_header();
             <div class="titre-grid">
                 <article class="titre-card">
                     <div class="titre-cover">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/dangerous-woman.jpg" alt="Dangerous Woman - Ariana Grande">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/TellYourFriends.jpg" alt="Tell Your Friends - The Weeknd" style="object-position: center 60%;">
                     </div>
                     <div class="titre-info">
-                        <p class="titre-name">Dangerous Woman</p>
-                        <p class="titre-artist">Ariana Grande</p>
+                        <p class="titre-name">Tell Your Friends</p>
+                        <p class="titre-artist">The Weeknd</p>
                         <div class="titre-actions">
                             <button class="heart-btn" aria-label="J'aime">
                               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -87,7 +87,7 @@ get_header();
 
                 <article class="titre-card">
                     <div class="titre-cover">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/espresso.jpg" alt="Espresso - Sabrina Carpenter">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Espresso.jpg" alt="Espresso - Sabrina Carpenter" style="object-position: center 20%;">
                     </div>
                     <div class="titre-info">
                         <p class="titre-name">Espresso</p>
@@ -109,7 +109,7 @@ get_header();
 
                 <article class="titre-card">
                     <div class="titre-cover">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/24k-magic.jpg" alt="24K Magic - Bruno Mars">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/24Kmagic.jpg" alt="24K Magic - Bruno Mars" style="object-position: center 20%;">
                     </div>
                     <div class="titre-info">
                         <p class="titre-name">24K Magic</p>
@@ -131,7 +131,7 @@ get_header();
 
                 <article class="titre-card">
                     <div class="titre-cover">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/i-wanna-be-yours.jpg" alt="I Wanna Be Yours - Arctic Monkeys">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Iwannabeyours.jpg" alt="I Wanna Be Yours - Arctic Monkeys">
                     </div>
                     <div class="titre-info">
                         <p class="titre-name">I Wanna Be Yours</p>
@@ -160,19 +160,19 @@ get_header();
             </div>
             <div class="avatar-row">
                 <div class="avatar-card">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ariana.jpg" alt="Ariana Grande">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/arianagrande.jpg" alt="Ariana Grande">
                     <p>Ariana Grande</p>
                 </div>
                 <div class="avatar-card">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tame_impala.jpg" alt="Tame Impala">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tameimpla.jpg" alt="Tame Impala">
                     <p>Tame Impala</p>
                 </div>
                 <div class="avatar-card">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mac_miller.jpg" alt="Mac Miller">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/macmiller.jpg" alt="Mac Miller">
                     <p>Mac Miller</p>
                 </div>
                 <div class="avatar-card">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/weeknd.jpg" alt="The Weeknd">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/TheWeeknd.jpg" alt="The Weeknd">
                     <p>The Weeknd</p>
                 </div>
             </div>
@@ -220,24 +220,41 @@ get_header();
     <!-- PLAYER -->
     <section class="player-wrapper">
         <div class="player">
-            <!-- Gauche: cover + info -->
-            <div class="player-left">
-                <div class="player-cover"></div>
-                <div class="player-info">
-                    <p class="player-title">Snooze</p>
-                    <p class="player-artist">SZA</p>
+            <div class="player-top">
+                <!-- Gauche: cover + info -->
+                <div class="player-left">
+                    <img class="player-cover" src="<?php echo get_template_directory_uri(); ?>/assets/images/snooze.jpg" alt="Snooze - SZA">
+                    <div class="player-info">
+                        <p class="player-title">Snooze</p>
+                        <p class="player-artist">SZA</p>
+                    </div>
                 </div>
+
+                <!-- Centre: contrôles -->
+                <div class="player-center">
+                    <button class="player-btn" aria-label="Précédent">
+                        <svg viewBox="0 0 24 24" fill="black">
+                            <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
+                        </svg>
+                    </button>
+                    <button class="player-btn player-btn-play" aria-label="Lecture">
+                        <svg viewBox="0 0 24 24" fill="black">
+                            <path d="M8 5l12 7-12 7z"/>
+                        </svg>
+                    </button>
+                    <button class="player-btn" aria-label="Suivant">
+                        <svg viewBox="0 0 24 24" fill="black">
+                            <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Spacer pour équilibrer -->
+                <div class="player-spacer"></div>
             </div>
 
-            <!-- Centre: contrôles -->
-            <div class="player-center">
-                <button class="player-btn">⏮</button>
-                <button class="player-btn">▶</button>
-                <button class="player-btn">⏭</button>
-            </div>
-
-            <!-- Droite: progression -->
-            <div class="player-right">
+            <!-- Bas: progression -->
+            <div class="player-bottom">
                 <span class="player-time">1:02</span>
                 <input type="range" min="0" max="139" value="62" class="progress-bar">
                 <span class="player-time">2:19</span>
@@ -260,6 +277,14 @@ get_header();
         updateGradient();
         range.addEventListener('input', updateGradient);
         range.addEventListener('change', updateGradient);
+
+        // Gestion des clics sur les cœurs
+        const heartBtns = document.querySelectorAll('.heart-btn');
+        heartBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        });
     });
     </script>
 
