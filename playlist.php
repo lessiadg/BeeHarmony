@@ -2,80 +2,138 @@
 /*
 Template Name: Playlist
 */
-get_header(); ?>
 
-<main class="main-content">
-    <div class="container">
-        <!-- PLAYLISTS -->
-        <section class="section">
-            <div class="section-header">
-                <h2>Mes Playlists</h2>
-                <button class="create-playlist-btn">+ Créer une playlist</button>
+$playlist = [
+  "name" => "Pop",
+  "creator" => "BeeHarmony",
+  "count" => 42,
+  "duration" => "2h34",
+  "cover" => get_template_directory_uri() . "/assets/images/Espresso.jpg"
+];
+
+$tracks = [
+  ["cover" => get_template_directory_uri() . "/assets/images/DangerousWoman.jpg", "title" => "ghostin", "artist" => "Ariana Grande", "time" => "3:55"],
+  ["cover" => get_template_directory_uri() . "/assets/images/24Kmagic.jpg", "title" => "That's What I Like", "artist" => "Bruno Mars", "time" => "3:19"],
+  ["cover" => get_template_directory_uri() . "/assets/images/snooze.jpg", "title" => "Nobody Get Me", "artist" => "SZA", "time" => "3:35"],
+  ["cover" => get_template_directory_uri() . "/assets/images/Espresso.jpg", "title" => "Bed Chem", "artist" => "Sabrina Carpenter", "time" => "3:35"],
+];
+?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><?= htmlspecialchars($playlist["name"]) ?> - BeeHarmony</title>
+  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/playlist.css" />
+</head>
+
+<body>
+  <div class="page">
+
+    <header class="topbar">
+      <a class="back" href="<?php echo home_url(); ?>" aria-label="Retour">
+        <!-- flèche -->
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M14.5 5.5 8 12l6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+
+      <div class="brand">BeeHarmony</div>
+
+      <div class="topbar-spacer" aria-hidden="true"></div>
+    </header>
+
+    <main class="content">
+      <section class="hero">
+        <div class="hero-cover">
+          <img src="<?= htmlspecialchars($playlist["cover"]) ?>" alt="Cover playlist" />
+        </div>
+
+        <div class="hero-info">
+          <h1 class="pl-title"><?= htmlspecialchars($playlist["name"]) ?></h1>
+          <p class="pl-sub">Playlist créer par <?= htmlspecialchars($playlist["creator"]) ?></p>
+          <p class="pl-meta"><?= (int)$playlist["count"] ?> titres - <?= htmlspecialchars($playlist["duration"]) ?></p>
+
+          <div class="hero-actions">
+            <button class="btn-play" type="button">
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M9 7.5v9l8-4.5-8-4.5z" fill="currentColor"/>
+                </svg>
+              </span>
+              Lire
+            </button>
+
+            <button class="btn-like" type="button" aria-label="Ajouter aux favoris">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 21s-7-4.6-9.4-9C.8 8.7 3 6 6 6c1.7 0 3 .9 3.9 2 1-1.1 2.2-2 4-2 3 0 5.2 2.7 3.4 6-2.4 4.4-9.3 9-9.3 9z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider"/>
+
+      <section class="tracklist" aria-label="Liste des titres">
+        <?php foreach ($tracks as $t): ?>
+          <article class="track">
+            <div class="track-left">
+              <div class="track-cover">
+                <img src="<?= htmlspecialchars($t["cover"]) ?>" alt="" />
+              </div>
+              <div class="track-text">
+                <div class="track-title"><?= htmlspecialchars($t["title"]) ?></div>
+                <div class="track-artist"><?= htmlspecialchars($t["artist"]) ?></div>
+              </div>
             </div>
-            
-            <div class="playlist-grid">
-                <article class="playlist-card">
-                    <div class="playlist-cover">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Espresso.jpg" alt="Playlist Été 2024">
-                        <button class="play-btn" aria-label="Lecture">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M8 5v14l11-7z"/>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="playlist-info">
-                        <h3 class="playlist-name">Été 2024</h3>
-                        <p class="playlist-meta">12 titres • 45 min</p>
-                    </div>
-                </article>
 
-                <article class="playlist-card">
-                    <div class="playlist-cover">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/TellYourFriends.jpg" alt="Playlist Chill Vibes">
-                        <button class="play-btn" aria-label="Lecture">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M8 5v14l11-7z"/>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="playlist-info">
-                        <h3 class="playlist-name">Chill Vibes</h3>
-                        <p class="playlist-meta">24 titres • 1h 30min</p>
-                    </div>
-                </article>
-
-                <article class="playlist-card">
-                    <div class="playlist-cover">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/24Kmagic.jpg" alt="Playlist Party">
-                        <button class="play-btn" aria-label="Lecture">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M8 5v14l11-7z"/>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="playlist-info">
-                        <h3 class="playlist-name">Party Mix</h3>
-                        <p class="playlist-meta">30 titres • 2h 15min</p>
-                    </div>
-                </article>
-
-                <article class="playlist-card">
-                    <div class="playlist-cover">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Iwannabeyours.jpg" alt="Playlist Indie">
-                        <button class="play-btn" aria-label="Lecture">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M8 5v14l11-7z"/>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="playlist-info">
-                        <h3 class="playlist-name">Indie Favorites</h3>
-                        <p class="playlist-meta">18 titres • 1h 10min</p>
-                    </div>
-                </article>
+            <div class="track-right">
+              <div class="track-time"><?= htmlspecialchars($t["time"]) ?></div>
+              <button class="btn-more" type="button" aria-label="Plus d'options">
+                <span class="dots" aria-hidden="true">
+                  <span></span><span></span><span></span>
+                </span>
+              </button>
             </div>
-        </section>
-    </div>
-</main>
+          </article>
 
-<?php get_footer(); ?>
+          <div class="rowline"></div>
+        <?php endforeach; ?>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="copy">©2025BeeHarmony</div>
+
+      <div class="social">
+        <a href="#" aria-label="Twitter">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19.7 7.1c.01.17.01.34.01.52 0 5.34-4.07 11.5-11.5 11.5-2.28 0-4.4-.66-6.2-1.8.32.04.63.05.96.05 1.9 0 3.65-.65 5.04-1.74-1.77-.03-3.26-1.2-3.77-2.8.25.05.5.08.77.08.36 0 .72-.05 1.05-.14-1.85-.37-3.24-2-3.24-3.95v-.05c.54.3 1.16.48 1.82.5-1.08-.72-1.79-1.95-1.79-3.34 0-.74.2-1.43.55-2.03 1.98 2.43 4.96 4.02 8.31 4.19-.07-.3-.1-.62-.1-.94 0-2.25 1.83-4.08 4.08-4.08 1.17 0 2.23.49 2.97 1.28.92-.18 1.79-.52 2.57-.99-.3.94-.94 1.74-1.77 2.24.82-.1 1.6-.32 2.32-.64-.55.82-1.24 1.55-2.03 2.13z"
+                  fill="currentColor"/>
+          </svg>
+        </a>
+
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7.5 2.8h9A4.7 4.7 0 0 1 21.2 7.5v9A4.7 4.7 0 0 1 16.5 21.2h-9A4.7 4.7 0 0 1 2.8 16.5v-9A4.7 4.7 0 0 1 7.5 2.8zm0 1.8A2.9 2.9 0 0 0 4.6 7.5v9a2.9 2.9 0 0 0 2.9 2.9h9a2.9 2.9 0 0 0 2.9-2.9v-9a2.9 2.9 0 0 0-2.9-2.9h-9z"
+                  fill="currentColor"/>
+            <path d="M12 7.7A4.3 4.3 0 1 1 7.7 12 4.3 4.3 0 0 1 12 7.7zm0 1.8A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5z"
+                  fill="currentColor"/>
+            <circle cx="16.9" cy="7.1" r="1.1" fill="currentColor"/>
+          </svg>
+        </a>
+
+        <a href="#" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M13.8 21v-7h2.4l.4-2.8h-2.8V9.4c0-.8.2-1.4 1.4-1.4H16.4V5.5c-.3 0-1.3-.1-2.5-.1-2.4 0-4 1.5-4 4.2v1.6H7.4V14H10v7h3.8z"
+                  fill="currentColor"/>
+          </svg>
+        </a>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>

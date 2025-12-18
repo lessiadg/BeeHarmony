@@ -255,9 +255,9 @@ get_header();
 
             <!-- Bas: progression -->
             <div class="player-bottom">
-                <span class="player-time">1:02</span>
-                <input type="range" min="0" max="139" value="62" class="progress-bar">
-                <span class="player-time">2:19</span>
+                <span class="player-time player-time-current">1:02</span>
+                <input type="range" min="0" max="201" value="62" class="progress-bar">
+                <span class="player-time player-time-total">3:21</span>
             </div>
         </div>
     </section>
@@ -265,13 +265,26 @@ get_header();
     <script>
     document.addEventListener('DOMContentLoaded', function () {
         const range = document.querySelector('.progress-bar');
+        const currentTimeEl = document.querySelector('.player-time-current');
         if (!range) return;
+
+        // Fonction pour formater les secondes en mm:ss
+        const formatTime = (seconds) => {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        };
 
         const updateGradient = () => {
             const min = Number(range.min) || 0;
             const max = Number(range.max) || 100;
             const val = ((Number(range.value) - min) / (max - min)) * 100;
             range.style.setProperty('--progress', val + '%');
+            
+            // Mettre à jour le temps actuel
+            if (currentTimeEl) {
+                currentTimeEl.textContent = formatTime(Number(range.value));
+            }
         };
 
         updateGradient();
@@ -284,6 +297,50 @@ get_header();
             btn.addEventListener('click', function() {
                 this.classList.toggle('active');
             });
+        });
+
+        // Gestion du bouton play/pause avec progression automatique
+        const playBtn = document.querySelector('.player-btn-play');
+        let isPlaying = false;
+        let progressInterval = null;
+
+        playBtn.addEventListener('click', function() {
+            isPlaying = !isPlaying;
+            const svg = this.querySelector('svg');
+            
+            if (isPlaying) {
+                // Afficher l'icône pause (deux barres)
+                svg.innerHTML = '<path d="M6 4h4v16H6zm8 0h4v16h-4z" fill="black"/>';
+                this.setAttribute('aria-label', 'Pause');
+                
+                // Démarrer la progression automatique
+                progressInterval = setInterval(() => {
+                    const currentValue = Number(range.value);
+                    const maxValue = Number(range.max);
+                    
+                    if (currentValue < maxValue) {
+                        range.value = currentValue + 1;
+                        updateGradient();
+                    } else {
+                        // Arrêter à la fin
+                        clearInterval(progressInterval);
+                        isPlaying = false;
+                        svg.innerHTML = '<path d="M8 5l12 7-12 7z" fill="black"/>';
+                        playBtn.setAttribute('aria-label', 'Lecture');
+                    }
+                }, 1000); // Mise à jour toutes les secondes
+                
+            } else {
+                // Afficher l'icône play (triangle)
+                svg.innerHTML = '<path d="M8 5l12 7-12 7z" fill="black"/>';
+                this.setAttribute('aria-label', 'Lecture');
+                
+                // Arrêter la progression
+                if (progressInterval) {
+                    clearInterval(progressInterval);
+                    progressInterval = null;
+                }
+            }
         });
     });
     </script>

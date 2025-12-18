@@ -188,6 +188,7 @@ body {
     background: linear-gradient(135deg, #5b8dff, #f7fbff);
     cursor: pointer;
     transition: transform 0.2s ease;
+    text-decoration: none;
 }
 
 .playlist-card:hover {
@@ -400,9 +401,8 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    background: #fff;
+    background: transparent;
     z-index: 100;
-    border-top: 1px solid #e2e2e2;
 }
 
 .player {
@@ -414,6 +414,7 @@ body {
     flex-direction: column;
     gap: 0px;
     background: linear-gradient(to top, #FFF64F, #FFFA9F, #F9F7DF);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .player-top {
