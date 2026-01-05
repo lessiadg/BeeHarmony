@@ -1,0 +1,375 @@
+/* titre.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap');
+
+/* Masquer la barre d'admin WordPress */
+#wpadminbar {
+  display: none !important;
+}
+html {
+  margin-top: 0 !important;
+}
+
+:root{
+  --text:#111;
+  --muted:#8a8a8a;
+  --line:#d9d9d9;
+  --soft:#f2f2f2;
+  --blue:#bcd8ff;
+  --heart:#f3d400;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background:#ffffff;
+  color:var(--text);
+}
+
+/* container "mobile" like screenshot */
+.phone{
+  max-width:100%;
+  margin:0;
+  min-height:100vh;
+  padding:0;
+}
+
+/* top bar */
+.topbar{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:22px 18px 14px;
+}
+
+.brand{
+  font-family:"Imperial Script", cursive;
+  font-size:40px;
+  line-height:1;
+  margin:0 auto;
+  transform: translateX(-14px); /* compense l'icône retour */
+}
+.spacer{width:40px} /* équilibre à droite */
+
+.icon-btn{
+  width:40px;
+  height:40px;
+  border:0;
+  background:transparent;
+  border-radius:999px;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  color:#222;
+  text-decoration: none;
+}
+.icon-btn svg{width:24px;height:24px}
+.icon-btn.ghost{
+  width:36px;height:36px;
+}
+
+.heart-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  width: 36px;
+  height: 36px;
+}
+
+.heart-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+.heart-btn:hover {
+  transform: scale(1.1);
+}
+
+.heart-btn:hover svg {
+  fill: #ff6b6b;
+  stroke: #ff6b6b;
+}
+
+.heart-btn.active svg {
+  fill: #ff0000;
+  stroke: #ff0000;
+}
+
+/* track section + comments section - centré comme playlist */
+.track,
+.divider,
+.comments{
+  width: min(980px, 92vw);
+  margin: 0 auto;
+}
+
+/* track section */
+.track{
+  display:grid;
+  grid-template-columns: 220px 1fr;
+  gap:26px;
+  align-items:center;
+  padding:18px 0 12px;
+}
+
+.cover{
+  width:180px;
+  height:180px;
+  object-fit:cover;
+  border-radius:14px;
+  margin-top: 0;
+  margin-left: 20px;
+}
+
+.track-meta h1{
+  margin:0;
+  font-size:22px;
+  font-weight:700;
+  line-height:1.1;
+}
+.artist{
+  margin:0;
+  color:var(--muted);
+  font-weight:400;
+  font-size:14px;
+}
+.duration{
+  margin:0;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.track-actions{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-top:10px;
+}
+
+.play-btn{
+  border: 0;
+  background: var(--blue);
+  padding: 9px 20px 9px 14px;
+  border-radius: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.play-ic{
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+.play-ic svg{
+  width: 36px;
+  height: 36px;
+  margin-left: 2px;
+  transform: scale(1.4);
+}
+
+/* divider */
+.divider{
+  border:0;
+  border-top:1px solid var(--line);
+  margin:12px 0 0;
+}
+
+/* comments list */
+.comments{
+  padding:10px 0 92px; /* place pour l'input en bas */
+}
+
+.comment{
+  display:grid;
+  grid-template-columns: 64px 1fr;
+  gap:14px;
+  padding:14px 0;
+}
+
+.comment-reply {
+  margin-left: 50px;
+  padding-left: 20px;
+  border-left: 2px solid #e0e0e0;
+}
+
+.reply-to {
+  font-size: 12px;
+  color: #5b8dff;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.avatar{
+  width:54px;
+  height:54px;
+  border-radius:999px;
+  object-fit:cover;
+}
+
+.comment-body{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.comment-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+}
+
+.username{
+  font-weight:700;
+  font-size:14px;
+  margin-bottom:4px;
+}
+.text{
+  font-size:14px;
+  color:#222;
+  line-height:1.35;
+  max-width:520px;
+}
+
+.like-btn{
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  width: 22px;
+  height: 22px;
+}
+
+.like-btn svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  color: #555;
+}
+
+.like-btn:hover {
+  transform: scale(1.1);
+}
+
+.like-btn:hover svg {
+  fill: #ff6b6b;
+  stroke: #ff6b6b;
+}
+
+.like-btn.active svg {
+  fill: #ff0000;
+  stroke: #ff0000;
+}
+
+.comment-bottom{
+  display:flex;
+  gap:18px;
+  align-items:center;
+  color:var(--muted);
+  font-size:12px;
+}
+.reply{
+  border:0;
+  background:transparent;
+  color:var(--muted);
+  cursor:pointer;
+  padding:0;
+  font-size:12px;
+}
+
+/* composer bottom */
+.composer{
+  position:fixed;
+  left:0; right:0; bottom:0;
+  background:#fff;
+  border-top:1px solid var(--line);
+  padding:14px 18px;
+}
+
+.composer-box{
+  max-width:740px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:12px 14px;
+  background:#fff;
+}
+
+.bubble {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bubble svg{width:22px;height:22px;color:#777}
+
+.composer input{
+  border:0;
+  outline:none;
+  flex:1;
+  font-size:14px;
+}
+.composer input::placeholder{color:#9b9b9b}
+
+.submit-comment-btn {
+  border: 0;
+  background: var(--blue);
+  color: #111;
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.submit-comment-btn:hover {
+  background: #a8c8f0;
+}
+
+/* FOOTER */
+.footer{
+  margin-top:18px;
+  padding-top:14px;
+  border-top:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  color:#222;
+}
+.copyright{
+  font-size:11px;
+  color:#333;
+}
+
+.socials{ display:flex; gap:12px; }
+.social{
+  width:22px;height:22px;
+  display:grid;place-items:center;
+  color:#111;
+  text-decoration:none;
+}
+.social svg{ width:18px; height:18px; }

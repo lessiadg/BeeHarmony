@@ -18,10 +18,18 @@ get_header();
         <nav class="bh-nav">
             <a href="<?php echo esc_url( home_url('/') ); ?>" class="nav-btn active">Accueil</a>
 
-            <form method="get" action="<?php echo esc_url( home_url('/recherche') ); ?>" class="bh-search">
-                <span class="search-icon">🔍</span>
-                <input type="text" name="s" placeholder="Rechercher, musiques, artistes, ..." />
-            </form>
+            <div class="bh-search">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.35-4.35"/>
+                </svg>
+                <input type="text" id="search-input" name="s" placeholder="Rechercher, musiques, artistes, ..." />
+                
+                <!-- Dropdown de résultats -->
+                <div class="search-dropdown" id="search-dropdown">
+                    <div class="search-results" id="search-results"></div>
+                </div>
+            </div>
 
             <!-- Zone connexion / profil -->
             <div class="bh-auth">
@@ -64,11 +72,11 @@ get_header();
 
             <div class="titre-grid">
                 <article class="titre-card">
-                    <div class="titre-cover">
+                    <a href="<?php echo home_url('/titre'); ?>" class="titre-cover">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/TellYourFriends.jpg" alt="Tell Your Friends - The Weeknd" style="object-position: center 60%;">
-                    </div>
+                    </a>
                     <div class="titre-info">
-                        <p class="titre-name">Tell Your Friends</p>
+                        <a href="<?php echo home_url('/titre'); ?>" class="titre-name">Tell Your Friends</a>
                         <p class="titre-artist">The Weeknd</p>
                         <div class="titre-actions">
                             <button class="heart-btn" aria-label="J'aime">
@@ -159,10 +167,10 @@ get_header();
                 <h2>Artistes</h2>
             </div>
             <div class="avatar-row">
-                <div class="avatar-card">
+                <a href="<?php echo home_url('/artiste'); ?>" class="avatar-card">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/arianagrande.jpg" alt="Ariana Grande">
                     <p>Ariana Grande</p>
-                </div>
+                </a>
                 <div class="avatar-card">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tameimpla.jpg" alt="Tame Impala">
                     <p>Tame Impala</p>
@@ -290,6 +298,80 @@ get_header();
         updateGradient();
         range.addEventListener('input', updateGradient);
         range.addEventListener('change', updateGradient);
+
+        // Recherche en temps réel
+        const searchInput = document.getElementById('search-input');
+        const searchDropdown = document.getElementById('search-dropdown');
+        const searchResults = document.getElementById('search-results');
+        
+        // Données de recherche (titres et artistes de la page)
+        const searchData = [
+            { type: 'titre', name: 'Tell Your Friends', artist: 'The Weeknd', image: '<?php echo get_template_directory_uri(); ?>/assets/images/TellYourFriends.jpg' },
+            { type: 'titre', name: 'Espresso', artist: 'Sabrina Carpenter', image: '<?php echo get_template_directory_uri(); ?>/assets/images/Espresso.jpg' },
+            { type: 'titre', name: '24K Magic', artist: 'Bruno Mars', image: '<?php echo get_template_directory_uri(); ?>/assets/images/24Kmagic.jpg' },
+            { type: 'titre', name: 'I Wanna Be Yours', artist: 'Arctic Monkeys', image: '<?php echo get_template_directory_uri(); ?>/assets/images/Iwannabeyours.jpg' },
+            { type: 'artiste', name: 'Ariana Grande', image: '<?php echo get_template_directory_uri(); ?>/assets/images/arianagrande.jpg' },
+            { type: 'artiste', name: 'Tame Impala', image: '<?php echo get_template_directory_uri(); ?>/assets/images/tameimpla.jpg' },
+            { type: 'artiste', name: 'Mac Miller', image: '<?php echo get_template_directory_uri(); ?>/assets/images/macmiller.jpg' },
+            { type: 'artiste', name: 'The Weeknd', image: '<?php echo get_template_directory_uri(); ?>/assets/images/TheWeeknd.jpg' }
+        ];
+        
+        if (searchInput && searchDropdown && searchResults) {
+            searchInput.addEventListener('input', function(e) {
+                const query = e.target.value.toLowerCase().trim();
+                
+                if (query.length === 0) {
+                    searchDropdown.classList.remove('active');
+                    return;
+                }
+                
+                // Filtrer les résultats
+                const results = searchData.filter(item => {
+                    const nameMatch = item.name.toLowerCase().includes(query);
+                    const artistMatch = item.artist && item.artist.toLowerCase().includes(query);
+                    return nameMatch || artistMatch;
+                });
+                
+                // Afficher les résultats
+                if (results.length > 0) {
+                    searchResults.innerHTML = results.map(item => {
+                        if (item.type === 'titre') {
+                            return `
+                                <div class="search-result-item">
+                                    <img src="${item.image}" alt="${item.name}">
+                                    <div class="search-result-info">
+                                        <div class="search-result-name">${item.name}</div>
+                                        <div class="search-result-artist">${item.artist}</div>
+                                    </div>
+                                    <span class="search-result-type">Titre</span>
+                                </div>
+                            `;
+                        } else {
+                            return `
+                                <div class="search-result-item">
+                                    <img src="${item.image}" alt="${item.name}">
+                                    <div class="search-result-info">
+                                        <div class="search-result-name">${item.name}</div>
+                                    </div>
+                                    <span class="search-result-type">Artiste</span>
+                                </div>
+                            `;
+                        }
+                    }).join('');
+                    searchDropdown.classList.add('active');
+                } else {
+                    searchResults.innerHTML = '<div class="search-no-results">Aucun résultat trouvé</div>';
+                    searchDropdown.classList.add('active');
+                }
+            });
+            
+            // Fermer le dropdown en cliquant ailleurs
+            document.addEventListener('click', function(e) {
+                if (!searchInput.contains(e.target) && !searchDropdown.contains(e.target)) {
+                    searchDropdown.classList.remove('active');
+                }
+            });
+        }
 
         // Gestion des clics sur les cœurs
         const heartBtns = document.querySelectorAll('.heart-btn');

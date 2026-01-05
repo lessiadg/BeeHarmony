@@ -8,11 +8,11 @@ $playlist = [
   "creator" => "BeeHarmony",
   "count" => 42,
   "duration" => "2h34",
-  "cover" => get_template_directory_uri() . "/assets/images/Espresso.jpg"
+  "cover" => ""
 ];
 
 $tracks = [
-  ["cover" => get_template_directory_uri() . "/assets/images/DangerousWoman.jpg", "title" => "ghostin", "artist" => "Ariana Grande", "time" => "3:55"],
+  ["cover" => get_template_directory_uri() . "/assets/images/ghostin.jpg", "title" => "ghostin", "artist" => "Ariana Grande", "time" => "3:55"],
   ["cover" => get_template_directory_uri() . "/assets/images/24Kmagic.jpg", "title" => "That's What I Like", "artist" => "Bruno Mars", "time" => "3:19"],
   ["cover" => get_template_directory_uri() . "/assets/images/snooze.jpg", "title" => "Nobody Get Me", "artist" => "SZA", "time" => "3:35"],
   ["cover" => get_template_directory_uri() . "/assets/images/Espresso.jpg", "title" => "Bed Chem", "artist" => "Sabrina Carpenter", "time" => "3:35"],
@@ -24,6 +24,9 @@ $tracks = [
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title><?= htmlspecialchars($playlist["name"]) ?> - BeeHarmony</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/playlist.css" />
 </head>
 
@@ -46,7 +49,6 @@ $tracks = [
     <main class="content">
       <section class="hero">
         <div class="hero-cover">
-          <img src="<?= htmlspecialchars($playlist["cover"]) ?>" alt="Cover playlist" />
         </div>
 
         <div class="hero-info">
@@ -64,10 +66,9 @@ $tracks = [
               Lire
             </button>
 
-            <button class="btn-like" type="button" aria-label="Ajouter aux favoris">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 21s-7-4.6-9.4-9C.8 8.7 3 6 6 6c1.7 0 3 .9 3.9 2 1-1.1 2.2-2 4-2 3 0 5.2 2.7 3.4 6-2.4 4.4-9.3 9-9.3 9z"
-                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            <button class="btn-like heart-btn" type="button" aria-label="Ajouter aux favoris">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
               </svg>
             </button>
           </div>
@@ -135,5 +136,17 @@ $tracks = [
     </footer>
 
   </div>
+
+  <script>
+    // Gestion du clic sur le cœur
+    document.addEventListener('DOMContentLoaded', function() {
+      const heartBtn = document.querySelector('.heart-btn');
+      if (heartBtn) {
+        heartBtn.addEventListener('click', function() {
+          this.classList.toggle('active');
+        });
+      }
+    });
+  </script>
 </body>
 </html>
