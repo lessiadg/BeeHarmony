@@ -223,7 +223,8 @@ body {
     transform: scale(1.05);
 }
 
-.nav-btn.active {
+.nav-btn.active,
+.profile-btn.active {
     background: #C5E0FB;
     border-color: #C5E0FB;
     color: #333;

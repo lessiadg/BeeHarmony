@@ -166,27 +166,27 @@ $comments = [
     </footer>
 
     <!-- FOOTER -->
-    <footer class="footer">
-      <span class="copyright">©2025 BeeHarmony</span>
-
-      <div class="socials" aria-label="Réseaux sociaux">
-        <a class="social" href="#" aria-label="Twitter/X">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M18 2h3l-7 8 8 12h-6l-5-7-6 7H2l8-9-8-11h6l4 6 6-6z" fill="currentColor"/>
-          </svg>
-        </a>
-        <a class="social" href="#" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6.5A3.5 3.5 0 1 0 15.5 12 3.5 3.5 0 0 0 12 8.5zm7-2.2a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"
-                fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-          </svg>
-        </a>
-        <a class="social" href="#" aria-label="Facebook">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v3H7v3h3v6h3v-6h3l1-3h-4v-3c0-.6.4-1 1-1z" fill="currentColor"/>
-          </svg>
-        </a>
-      </div>
+    <footer class="bh-footer">
+        <span>©2025BeeHarmony</span>
+        <div class="footer-icons">
+            <a href="#" class="footer-icon-link" aria-label="Twitter">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                </svg>
+            </a>
+            <a href="#" class="footer-icon-link" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="white"/>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </a>
+            <a href="#" class="footer-icon-link" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                </svg>
+            </a>
+        </div>
     </footer>
   </main>
 

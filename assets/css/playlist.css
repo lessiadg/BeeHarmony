@@ -24,7 +24,10 @@ body{
 
 /* TOPBAR */
 .topbar{
-  position: relative;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 100;
   display: grid;
   grid-template-columns: 64px 1fr 64px;
   align-items: center;

@@ -34,6 +34,10 @@ body{
 
 /* TOP BAR */
 .topbar{
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 100;
   display:flex;
   align-items:center;
   gap:12px;
@@ -232,6 +236,8 @@ body{
 .album-title{
   margin-top:6px;
   font-size:10px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
   color:#222;
   text-align:center;
   white-space:nowrap;
