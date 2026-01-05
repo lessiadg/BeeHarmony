@@ -9,7 +9,7 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/accueil.css">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/profil.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/profil.css?v=<?php echo time(); ?>">
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>

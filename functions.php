@@ -14,12 +14,13 @@ add_action('after_setup_theme', 'theme_setup');
 // Enqueue styles and scripts
 function theme_scripts()
 {
-    wp_enqueue_style('theme-style', get_template_directory_uri() . '/assets/css/main.css', array(), '1.0.0');
-    wp_enqueue_style('accueil-style', get_template_directory_uri() . '/assets/css/accueil.css', array(), '1.0.0');
-    wp_enqueue_style('titre-style', get_template_directory_uri() . '/assets/css/titre.css', array(), '1.0.0');
-    wp_enqueue_style('footer-style', get_template_directory_uri() . '/assets/css/footer.css', array(), '1.0.0');
-    wp_enqueue_style('header-style', get_template_directory_uri() . '/assets/css/header.css', array(), '1.0.0');
-    wp_enqueue_script('theme-script', get_template_directory_uri() . '/assets/js/main.js', array(), '1.0.0', true);
+    wp_enqueue_style('theme-style', get_template_directory_uri() . '/assets/css/main.css', array(), '1.0.3');
+    wp_enqueue_style('accueil-style', get_template_directory_uri() . '/assets/css/accueil.css', array(), '1.0.3');
+    wp_enqueue_style('profil-style', get_template_directory_uri() . '/assets/css/profil.css', array(), '1.0.3');
+    wp_enqueue_style('titre-style', get_template_directory_uri() . '/assets/css/titre.css', array(), '1.0.3');
+    wp_enqueue_style('footer-style', get_template_directory_uri() . '/assets/css/footer.css', array(), '1.0.3');
+    wp_enqueue_style('header-style', get_template_directory_uri() . '/assets/css/header.css', array(), '1.0.3');
+    wp_enqueue_script('theme-script', get_template_directory_uri() . '/assets/js/main.js', array(), '1.0.3', true);
 }
 add_action('wp_enqueue_scripts', 'theme_scripts');
 

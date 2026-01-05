@@ -126,7 +126,7 @@
 }
 
 .playlist-card.pink::before{
-  background: linear-gradient(180deg, #ffe9b3, #ff59c7);
+  background: linear-gradient(180deg, #FDFBD4, #F6A8D6, #EF58D9) !important;
 }
 
 .playlist-card.purple::before{
@@ -219,5 +219,5 @@
 
 /* FOOTER PAGE PROFIL */
 .profil-section + .bh-footer {
-  margin-top: 100px;
+  margin-top: 350px;
 }
