@@ -6,6 +6,7 @@ get_header();
 
     <!-- HEADER / TOP BAR -->
     <header class="bh-header">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/LOGO-BEEHARMONY (1).png" alt="Logo BeeHarmony" class="bh-logo-left">
         <h1 class="bh-logo">BeeHarmony</h1>
 
         <p class="bh-subtitle">
@@ -28,11 +29,8 @@ get_header();
                         Profil
                     </a>
                 <?php else : ?>
-                    <a class="profile-btn" href="<?php echo esc_url( home_url('/login') ); ?>">
+                    <a class="profile-btn" href="<?php echo esc_url( home_url('/connexion') ); ?>">
                         Connexion
-                    </a>
-                    <a class="register-link" href="<?php echo esc_url( home_url('/signup') ); ?>">
-                        Inscription
                     </a>
                 <?php endif; ?>
             </div>

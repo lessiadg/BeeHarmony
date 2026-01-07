@@ -32,6 +32,14 @@ body {
     padding-bottom: 120px;
 }
 
+.page-template-page-profil .page {
+    padding-bottom: 0;
+}
+
+.page-template-page-profil .bh-main {
+    flex: 1;
+}
+
 /* On centre le contenu au milieu de l'écran, pas en A4 */
 .bh-main,
 .bh-header,
@@ -46,6 +54,15 @@ body {
 .bh-header {
     text-align: center;
     padding: 22px 16px 10px;
+    position: relative;
+}
+
+.bh-logo-left {
+    position: absolute;
+    top: 10px;
+    left: -70px;
+    height: 90px;
+    width: auto;
 }
 
 .bh-logo {
@@ -53,6 +70,13 @@ body {
     font-size: 3rem;
     margin-bottom: 4px;
     font-weight: 400;
+}
+
+.bh-logo-img {
+    height: 60px;
+    width: auto;
+    display: block;
+    margin: 0 auto 4px;
 }
 
 .bh-subtitle {
@@ -306,15 +330,15 @@ body {
 }
 
 .playlist-card:nth-child(2) {
-    background: linear-gradient(135deg, #ff3a3a, #000000);
+    background: linear-gradient(135deg, #262623, #F12B2B);
 }
 
 .playlist-card:nth-child(3) {
-    background: linear-gradient(135deg, #3baa3a, #000000);
+    background: linear-gradient(135deg, #ADF19C, #308993);
 }
 
 .playlist-card:nth-child(4) {
-    background: linear-gradient(135deg, #ff5fe0, #000000);
+    background: linear-gradient(135deg, #F26CC6, #F32DD5);
 }
 
 /* Bouton flèche commun */
@@ -722,3 +746,110 @@ body {
   text-decoration:none;
 }
 .social svg{ width:18px; height:18px; }
+
+/* RESPONSIVE MOBILE */
+@media (max-width: 768px) {
+    .bh-logo-left {
+        position: static;
+        height: 60px;
+        margin: 0 auto 10px;
+        display: block;
+    }
+
+    .bh-logo {
+        font-size: 2rem;
+    }
+
+    .bh-subtitle {
+        font-size: 0.75rem;
+        padding: 0 10px;
+    }
+
+    .bh-nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .bh-search {
+        max-width: 100%;
+    }
+
+    .bh-auth {
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .profile-btn {
+        width: 100%;
+    }
+
+    .nav-btn {
+        font-size: 13px;
+        padding: 8px 14px;
+    }
+
+    .playlist-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .playlist-card {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1;
+    }
+
+    .titre-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .avatar-row {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .player {
+        flex-direction: column;
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .player-left {
+        width: 100%;
+    }
+
+    .player-right {
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .player-controls {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .bh-header {
+        padding: 15px 10px;
+    }
+
+    .playlist-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .avatar-row {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .bh-logo {
+        font-size: 1.8rem;
+    }
+}

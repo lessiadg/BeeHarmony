@@ -9,8 +9,8 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/accueil.css">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/profil.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/accueil.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/profil.css?v=<?php echo time(); ?>">
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -20,6 +20,7 @@
 
     <!-- HEADER / TOP BAR -->
     <header class="bh-header">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/LOGO-BEEHARMONY (1).png" alt="Logo BeeHarmony" class="bh-logo-left">
         <h1 class="bh-logo">BeeHarmony</h1>
 
         <p class="bh-subtitle">
@@ -50,11 +51,8 @@
                         Profil
                     </a>
                 <?php else : ?>
-                    <a class="profile-btn" href="<?php echo esc_url( home_url('/login') ); ?>">
+                    <a class="profile-btn" href="<?php echo esc_url( home_url('/connexion') ); ?>">
                         Connexion
-                    </a>
-                    <a class="register-link" href="<?php echo esc_url( home_url('/signup') ); ?>">
-                        Inscription
                     </a>
                 <?php endif; ?>
             </div>
@@ -126,27 +124,49 @@
 
             <div class="recent-grid">
 
-              <div class="recent-card">
-                <img class="recent-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/ariana.jpg" alt="cover">
-                <p class="recent-song">Dangerous Wom...</p>
-                <p class="recent-artist">Ariana Grande</p>
-
-                <div class="recent-icons">
-                  <span>♡</span>
-                  <span>⟳</span>
+              <article class="titre-card">
+                <div class="titre-cover">
+                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/DangerousWoman.jpg" alt="Dangerous Woman">
                 </div>
-              </div>
-
-              <div class="recent-card">
-                <img class="recent-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/arctic.jpg" alt="cover">
-                <p class="recent-song">I Wanna Be Your</p>
-                <p class="recent-artist">Arctic Monkeys</p>
-
-                <div class="recent-icons">
-                  <span>♡</span>
-                  <span>⟳</span>
+                <div class="titre-info">
+                  <p class="titre-name">Dangerous Woman</p>
+                  <p class="titre-artist">Ariana Grande</p>
+                  <div class="titre-actions">
+                    <button class="heart-btn" type="button" aria-label="Ajouter aux favoris">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                      </svg>
+                    </button>
+                    <button class="comment-btn" type="button" aria-label="Commenter">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                      </svg>
+                    </button>
+                  </div>
                 </div>
-              </div>
+              </article>
+
+              <article class="titre-card">
+                <div class="titre-cover">
+                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Espresso.jpg" alt="Espresso">
+                </div>
+                <div class="titre-info">
+                  <p class="titre-name">Espresso</p>
+                  <p class="titre-artist">Sabrina Carpenter</p>
+                  <div class="titre-actions">
+                    <button class="heart-btn" type="button" aria-label="Ajouter aux favoris">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                      </svg>
+                    </button>
+                    <button class="comment-btn" type="button" aria-label="Commenter">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </article>
 
             </div>
           </div>

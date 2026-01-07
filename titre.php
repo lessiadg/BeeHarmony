@@ -242,14 +242,6 @@ $comments = [
           this.classList.toggle('active');
         });
 
-        // Ajouter le menu contextuel pour supprimer
-        newComment.addEventListener('contextmenu', function(e) {
-          e.preventDefault();
-          if (confirm('Voulez-vous supprimer ce commentaire ?')) {
-            newComment.remove();
-          }
-        });
-
         // Vider le champ
         commentInput.value = '';
 

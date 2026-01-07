@@ -7,9 +7,11 @@
 /* --- PROFIL TOP --- */
 .profil-top{
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  gap: 80px;
+  padding: 0 20px;
 }
 
 .profil-left{
@@ -39,14 +41,14 @@
 .profil-right{
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  margin-left: -80px;
+  align-items: center;
+  gap: 15px;
+  margin-left: 0;
 }
 
 .profil-stats{
   display: flex;
-  gap: 10px;
+  gap: 20px;
   text-align: center;
 }
 
@@ -95,7 +97,7 @@
 /* --- PLAYLISTS --- */
 .playlist-title{
   margin-top: 25px;
-  font-size: 32px;
+  font-size: 1.1rem;
   font-weight: 800;
 }
 
@@ -114,26 +116,39 @@
   margin-top: 20px;
 }
 
-.playlist-card{
-  width: 210px;
+.playlist-block .playlist-card{
+  width: 170px;
+  background: none !important;
+  position: relative;
+  overflow: hidden;
+  height: 170px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.playlist-card::before{
+.playlist-block .playlist-card::before{
   content:"";
-  display: block;
-  height: 120px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   border-radius: 14px;
+  z-index: 0;
 }
 
-.playlist-card.pink::before{
+.playlist-block .playlist-card.pink::before{
   background: linear-gradient(180deg, #FDFBD4, #F6A8D6, #EF58D9) !important;
 }
 
-.playlist-card.purple::before{
+.playlist-block .playlist-card.purple::before{
   background: linear-gradient(180deg, #e7b6ff, #5aa3ff);
 }
 
-.playlist-card.orange::before{
+.playlist-block .playlist-card.orange::before{
   background: linear-gradient(180deg, #ffe2b6, #ff7a63);
 }
 
@@ -146,6 +161,8 @@
   margin-top: 8px;
   font-weight: 600;
   font-size: 13px;
+  position: relative;
+  z-index: 1;
 }
 
 /* --- LINES --- */
@@ -157,47 +174,111 @@
 
 /* --- RECENT --- */
 .recent-title{
-  font-size: 32px;
+  font-size: 1.1rem;
   font-weight: 800;
   margin-top: 10px;
 }
 
 .recent-grid{
-  display: flex;
-  gap: 40px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) auto;
+  gap: 14px;
   margin-top: 15px;
+  align-items: center;
 }
 
-.recent-card{
-  width: 170px;
-  position: relative;
+.recent-block .titre-card {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  min-height: 145px;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.recent-img{
-  width: 140px;
-  height: 70px;
+.recent-block .titre-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.recent-block .titre-cover {
+  display: block;
+  text-decoration: none;
+}
+
+.recent-block .titre-cover img {
+  width: 100%;
+  height: 82px;
   object-fit: cover;
-  border-radius: 6px;
+  display: block;
 }
 
-.recent-song{
-  font-size: 12px;
-  font-weight: 700;
-  margin-top: 6px;
+.recent-block .titre-info {
+  padding: 6px 8px 8px;
+  font-size: 0.7rem;
 }
 
-.recent-artist{
-  font-size: 11px;
-  color: #777;
+.recent-block .titre-name {
+  font-weight: 600;
+  margin-bottom: 2px;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: pointer;
 }
 
-.recent-icons{
-  position: absolute;
-  right: 0;
-  bottom: 2px;
+.recent-block .titre-name:hover {
+  color: #5b8dff;
+}
+
+.recent-block .titre-artist {
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.recent-block .titre-actions {
   display: flex;
   gap: 8px;
-  font-size: 14px;
+  font-size: 1.4rem;
+}
+
+.recent-block .heart-btn,
+.recent-block .comment-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  width: 36px;
+  height: 36px;
+}
+
+.recent-block .heart-btn svg,
+.recent-block .comment-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+.recent-block .heart-btn:hover,
+.recent-block .comment-btn:hover {
+  transform: scale(1.1);
+}
+
+.recent-block .heart-btn:hover svg {
+  fill: #ff6b6b;
+  stroke: #ff6b6b;
+}
+
+.recent-block .heart-btn.active svg {
+  fill: #ff0000;
+  stroke: #ff0000;
 }
 
 /* --- FOOTER --- */
@@ -218,6 +299,121 @@
 }
 
 /* FOOTER PAGE PROFIL */
-.profil-section + .bh-footer {
-  margin-top: 350px;
+body.page-template-page-profil .bh-footer,
+.page-template-page-profil .bh-footer,
+body[class*="page-profil"] .bh-footer {
+  margin-top: 100px !important;
+  padding-bottom: 5px !important;
+  margin-bottom: 0 !important;
+}
+
+/* Cacher le lecteur audio sur la page profil */
+.page-template-page-profil .player-wrapper {
+  display: none !important;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .profil-top {
+        flex-direction: column;
+        gap: 30px;
+        margin-top: 20px;
+    }
+
+    .profil-left {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profil-avatar {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profil-right {
+        width: 100%;
+    }
+
+    .profil-stats {
+        gap: 20px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .stat {
+        width: auto;
+        min-width: 80px;
+    }
+
+    .profil-buttons {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .playlist-section {
+        padding: 0 15px;
+    }
+
+    .playlist-title {
+        font-size: 24px;
+    }
+
+    .playlist-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .playlist-box {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1;
+    }
+
+    .recent-activity {
+        padding: 0 15px;
+    }
+
+    .recent-title {
+        font-size: 24px;
+    }
+
+    .recent-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mini-footer {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .profil-section {
+        padding: 0 10px;
+    }
+
+    .playlist-container {
+        grid-template-columns: 1fr;
+    }
+
+    .profil-stats {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .profil-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .btn-follow,
+    .btn-share {
+        width: 100%;
+    }
+
+    .playlist-title,
+    .recent-title {
+        font-size: 20px;
+    }
 }

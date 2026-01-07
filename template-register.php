@@ -8,7 +8,8 @@ get_header();
 
 <div class="register-container">
     <div class="register-form-wrapper">
-        <h1>Sign Up</h1>
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/LOGO-BEEHARMONY (1).png" alt="BeeHarmony" class="login-logo">
+        <h1>Inscription</h1>
 
         <?php
         if (isset($_GET['registration']) && $_GET['registration'] == 'success') {
@@ -65,10 +66,10 @@ get_header();
                     <input type="password" name="user_pass_confirm" id="user_pass_confirm" required>
                 </div>
 
-                <button type="submit" name="register_submit" class="submit-btn">Sign Up</button>
+                <button type="submit" name="register_submit" class="submit-btn">S'inscrire</button>
             </form>
 
-            <p class="login-link">Already have an account? <a href="<?php echo esc_url(home_url('/login')); ?>">Login</a></p>
+            <p class="login-link">Déjà un compte ? <a href="<?php echo esc_url(home_url('/connexion')); ?>">Se connecter</a></p>
 
         <?php } ?>
     </div>
